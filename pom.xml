@@ -6,13 +6,13 @@
 
     <!-- Artifact / group id and version -->
     <groupId>org.example</groupId>
-    <artifactId>starter</artifactId>
+    <artifactId>fluentinterfaces</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <!-- Metadata -->
-    <name>Java starter project</name>
-    <description>Starter project for Java based on Maven.</description>
-    <url>https://github.com/seeseekey/JavaStarter</url>
+    <name>Fluent interfaces example</name>
+    <description>A example of fluent interfaces in Java.</description>
+    <url>https://github.com/seeseekey/FluentInterfacesExample</url>
 
     <licenses>
         <license>
@@ -60,6 +60,25 @@
             <version>2.10.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.kobylynskyi</groupId>
+            <artifactId>graphql-java-codegen</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+
         <!-- Test related dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -72,6 +91,31 @@
     <!-- Build settings -->
     <build>
         <plugins>
+            <plugin>
+                <groupId>io.github.kobylynskyi</groupId>
+                <artifactId>graphql-codegen-maven-plugin</artifactId>
+                <version>5.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <graphqlSchemas>
+                                <includePattern>schema\.graphqls</includePattern>
+                            </graphqlSchemas>
+                            <outputDir>${project.build.directory}/generated-sources/graphql</outputDir>
+                            <packageName>org.example.fluentinterfaces.graphlql</packageName>
+                            <apiPackageName>org.example.fluentinterfaces.graphlql.api</apiPackageName>
+                            <modelPackageName>org.example.fluentinterfaces.graphlql.model</modelPackageName>
+                            <modelNameSuffix>BO</modelNameSuffix>
+                            <generateClient>true</generateClient>
+                            <generateApis>true</generateApis>
+                            <addGeneratedAnnotation>false</addGeneratedAnnotation>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -92,7 +136,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.starter.Starter</mainClass>
+                            <mainClass>org.example.fluentinterfaces.Starter</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

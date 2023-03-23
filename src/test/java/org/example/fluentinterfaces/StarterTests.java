@@ -1,10 +1,10 @@
-package org.example.starter;
+package org.example.fluentinterfaces;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class StarterTests {
+class StarterTests {
 
     @Test
     void testMinimalClass() {

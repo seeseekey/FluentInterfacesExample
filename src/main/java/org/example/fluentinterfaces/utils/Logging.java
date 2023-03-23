@@ -1,4 +1,4 @@
-package org.example.starter.utils;
+package org.example.fluentinterfaces.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

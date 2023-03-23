@@ -1,0 +1,13 @@
+type Product {
+    ean: String
+    name: String
+    categoryId: Int
+    categoryName: String
+    issuingCountry: String
+}
+
+type Query {
+    barcodeLookup(ean: String!, language: Int): [Product]
+    barcodePrefixSearch(prefix: String!, language: Int, page: Int): [Product]
+    productSearch(keywords: String!, categoryId: Int, language: Int, page: Int): [Product]
+}
