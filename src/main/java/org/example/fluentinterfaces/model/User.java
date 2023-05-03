@@ -59,18 +59,18 @@ public class User {
             return new Builder();
         }
 
-        public Builder name(String val) {
-            name = val;
+        public Builder name(String name) {
+            this.name = name;
             return this;
         }
 
-        public Builder forename(String val) {
-            forename = val;
+        public Builder forename(String forename) {
+            this.forename = forename;
             return this;
         }
 
-        public Builder username(String val) {
-            username = val;
+        public Builder username(String username) {
+            this.username = username;
             return this;
         }
 

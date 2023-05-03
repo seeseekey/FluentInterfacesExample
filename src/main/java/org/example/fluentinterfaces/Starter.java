@@ -34,14 +34,23 @@ public class Starter {
                                 .build()
                 };
 
-
         User nathalie = Arrays.stream(users)
                 .filter(user -> "Nathalie".equals(user.getForename()))
                 .findFirst()
                 .orElse(null);
 
         if (nathalie != null) {
-            LOG.info("Username is: {}", nathalie.getUsername());
+            LOG.info("Username (for forename Nathalie) is: {}", nathalie.getUsername());
+        }
+
+        User aMustermann = Arrays.stream(users)
+                .parallel()
+                .filter(user -> "Mustermann".equals(user.getName()))
+                .findAny()
+                .orElse(null);
+
+        if (aMustermann != null) {
+            LOG.info("Username (for name Mustermann) is: {}", aMustermann.getUsername());
         }
 
         // HTML DSL example
